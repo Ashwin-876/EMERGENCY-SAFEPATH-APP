@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caregiver Portal - Emergency System</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div class="bg-animation">
+    <div class="circle c1"></div>
+    <div class="circle c2"></div>
+    <div class="circle c3"></div>
+  </div>
+
+  <!-- Audio Context Unlock Overlay -->
+  <div id="audio-unlock-overlay"
+    style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 9999; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; color: white; cursor: pointer;">
+    <div style="text-align: center;">
+      <h2 style="margin: 0;">System Active</h2>
+      <p>Click anywhere to enable emergency audio.</p>
+    </div>
+  </div>
+
+  <div id="app">
+    <div class="card">
+      <div class="safepath-header">
+        <div class="logo-container">
+          <div class="voice-icon-wrapper">
+            <svg class="voice-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" fill="currentColor" />
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <line x1="12" y1="19" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <line x1="8" y1="23" x2="16" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+            <div class="voice-waves">
+              <span class="wave w1"></span>
+              <span class="wave w2"></span>
+            </div>
+          </div>
+          <div class="title-container">
+            <h1>SafePath Emergency</h1>
+            <p class="subtitle">Caregiver Monitoring System</p>
+          </div>
+        </div>
+        <div class="status-badge online" id="monitor-status">
+          <span class="status-dot"></span>
+          <span class="status-text">Online & Monitoring</span>
+        </div>
+      </div>
+
+      <!-- Setup Panel Removed for Always Online Mode -->
+      <div id="setup-panel" style="display: none;"></div>
+
+      <!-- Monitoring Panel Visible by Default -->
+      <div id="monitoring-panel">
+        <div class="status-container">
+          <div class="pulse-dot"></div>
+          <span>System Active & Monitoring</span>
+        </div>
+
+        <div id="incoming-alert" class="alert-box" style="display: none;">
+          <div class="alert-header">
+            <span class="alert-icon">⚠️</span>
+            <h2>EMERGENCY ALERT</h2>
+          </div>
+          <p>User needs help now!</p>
+          <div class="action-buttons">
+            <button id="reject-btn" type="button" class="secondary-btn">Reject</button>
+            <button id="accept-btn" type="button" class="danger-btn">Accept Call</button>
+          </div>
+        </div>
+
+        <div id="active-call" class="active-call-box" style="display: none;">
+          <h3 class="connected-text">Call Connected</h3>
+          <div class="timer">00:00</div>
+          <button id="hangup-btn" type="button" class="secondary-btn">End Call</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
