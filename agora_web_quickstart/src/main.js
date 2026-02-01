@@ -2,9 +2,11 @@ import './style.css'
 import AgoraRTC from "agora-rtc-sdk-ng";
 
 // --- CONFIGURATION ---
-const APP_ID = "09470838be104240bcaede1829fd7815";
-const CHANNEL = "emergency-channel";
-const TOKEN = null;
+// --- CONFIGURATION ---
+// Use VITE_ prefix for environment variables
+const APP_ID = import.meta.env.VITE_AGORA_APP_ID || "09470838be104240bcaede1829fd7815";
+const CHANNEL = import.meta.env.VITE_AGORA_CHANNEL || "emergency-channel";
+const TOKEN = import.meta.env.VITE_AGORA_TOKEN || null;
 
 // --- STATE ---
 let client;
