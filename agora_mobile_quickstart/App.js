@@ -82,6 +82,7 @@ export default function App() {
     if (Platform.OS === 'android') {
       await PermissionsAndroid.requestMultiple([
         PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
+        'android.permission.POST_NOTIFICATIONS' // Request Notification permission for Android 13+
       ]);
     }
   };

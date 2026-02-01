@@ -147,6 +147,11 @@ async function startMonitoring() {
     client.on("user-published", handleUserPublished);
     client.on("user-unpublished", handleUserUnpublished);
     client.on("user-left", handleUserLeft);
+
+    // Explicitly handle permission error on auto-play policy
+    AgoraRTC.onAutoplayFailed = () => {
+      alert("Click the page to hear audio!");
+    }
   }
 
   try {
